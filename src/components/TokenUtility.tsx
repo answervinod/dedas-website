@@ -15,7 +15,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 interface UtilityItem {
-  icon: IconType;
+  icon: typeof CubeTransparentIcon;
   title: string;
   description: string | string[];
 }
