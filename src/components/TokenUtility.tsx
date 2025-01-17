@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import type { IconType } from '@heroicons/react/24/outline';
 import {
   CubeTransparentIcon,
   UserGroupIcon,
@@ -14,7 +15,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 interface UtilityItem {
-  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  icon: IconType;
   title: string;
   description: string | string[];
 }
@@ -94,8 +95,8 @@ const utilityData: UtilitySection[] = [
   }
 ];
 
-const TokenUtility = () => {
-  const [ref, inView] = useInView({
+const TokenUtility: React.FC = () => {
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
