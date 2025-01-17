@@ -8,20 +8,14 @@
       html, body {
         margin: 0;
         padding: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
+        width: 100%;
+        overflow-x: hidden;
       }
-      body {
-        position: relative;
-      }
-      #root {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 125%;
+      .scale-container {
         transform: scale(0.8);
-        transform-origin: 0 0;
+        transform-origin: top left;
+        width: 125%;
+        height: auto;
       }
     </style>
     
@@ -45,7 +39,9 @@
     <meta property="twitter:image" content="https://dedas.org/assets/images/logo.png">
   </head>
   <body>
-    <div id="root"></div>
+    <div class="scale-container">
+      <div id="root"></div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
