@@ -12,7 +12,19 @@ import {
   FireIcon
 } from '@heroicons/react/24/outline';
 
-const utilityData = [
+interface UtilityItem {
+  icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+  title: string;
+  description: string | string[];
+}
+
+interface UtilitySection {
+  title: string;
+  subtitle?: string;
+  items: UtilityItem[];
+}
+
+const utilityData: UtilitySection[] = [
   {
     title: 'Token Utility',
     items: [

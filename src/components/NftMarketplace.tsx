@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
-import { ethers } from 'ethers';
 
 interface NFT {
   id: number;
@@ -9,6 +8,13 @@ interface NFT {
   description: string;
   price: string;
   image: string;
+}
+
+// Add ethereum to window type
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
 }
 
 const NftMarketplace: React.FC = () => {

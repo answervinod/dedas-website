@@ -18,9 +18,9 @@ const Hero = () => {
       const formData = new URLSearchParams();
       formData.append('email', email);
       
-      const response = await fetch(SCRIPT_URL, {
+      await fetch(SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
