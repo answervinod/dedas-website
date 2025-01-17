@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import type { IconType } from '@heroicons/react/24/outline';
+import type { ComponentType, SVGProps } from 'react';
 import {
   CubeTransparentIcon,
   UserGroupIcon,
@@ -14,8 +14,10 @@ import {
   FireIcon
 } from '@heroicons/react/24/outline';
 
+type HeroIcon = ComponentType<SVGProps<SVGSVGElement>>;
+
 interface UtilityItem {
-  icon: typeof CubeTransparentIcon;
+  icon: HeroIcon;
   title: string;
   description: string | string[];
 }

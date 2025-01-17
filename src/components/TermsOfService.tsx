@@ -1,12 +1,12 @@
-import React, { useState, useEffect, FC } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 
-const TermsOfService: FC = () => {
-  const [activeSection, setActiveSection] = useState<string>('');
-  const [showBackToTop, setShowBackToTop] = useState(false);
+const TermsOfService = () => {
+  const [activeSection, setActiveSection] = React.useState<string>('');
+  const [showBackToTop, setShowBackToTop] = React.useState(false);
 
   // Handle scroll events for table of contents highlighting and back to top button
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 400);
       const sections = document.querySelectorAll('.terms-section');

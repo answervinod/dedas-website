@@ -1,12 +1,12 @@
-import React, { useState, useEffect, FC } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
 
-const PrivacyPolicy: FC = () => {
-  const [activeSection, setActiveSection] = useState<string>('');
-  const [showBackToTop, setShowBackToTop] = useState(false);
+const PrivacyPolicy = () => {
+  const [activeSection, setActiveSection] = React.useState('');
+  const [showBackToTop, setShowBackToTop] = React.useState(false);
 
   // Handle scroll events for table of contents highlighting and back to top button
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       setShowBackToTop(window.scrollY > 400);
       const sections = document.querySelectorAll('.privacy-section');
@@ -22,7 +22,7 @@ const PrivacyPolicy: FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
+  const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
