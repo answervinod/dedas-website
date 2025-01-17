@@ -1,3 +1,4 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -189,12 +190,29 @@ const TokenUtility = () => {
                     </div>
                     
                     <ul className="space-y-6">
-                      {item.description.map((desc, idx) => (
+                      {Array.isArray(item.description) ? (
+                        item.description.map((desc: string, idx: number) => (
+                          <motion.li
+                            key={idx}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={inView ? { opacity: 1, x: 0 } : {}}
+                            transition={{ duration: 0.5, delay: 0.3 + (idx * 0.1) }}
+                            className="flex items-start gap-4 group"
+                          >
+                            <div className="relative mt-1">
+                              <div className="absolute inset-0 bg-primary/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300" />
+                              <FireIcon className="h-6 w-6 text-primary relative" />
+                            </div>
+                            <p className="text-xl text-gray-300 flex-1 group-hover:text-primary transition-colors duration-300">
+                              {desc}
+                            </p>
+                          </motion.li>
+                        ))
+                      ) : (
                         <motion.li
-                          key={idx}
                           initial={{ opacity: 0, x: -20 }}
                           animate={inView ? { opacity: 1, x: 0 } : {}}
-                          transition={{ duration: 0.5, delay: 0.3 + (idx * 0.1) }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
                           className="flex items-start gap-4 group"
                         >
                           <div className="relative mt-1">
@@ -202,10 +220,10 @@ const TokenUtility = () => {
                             <FireIcon className="h-6 w-6 text-primary relative" />
                           </div>
                           <p className="text-xl text-gray-300 flex-1 group-hover:text-primary transition-colors duration-300">
-                            {desc}
+                            {item.description}
                           </p>
                         </motion.li>
-                      ))}
+                      )}
                     </ul>
                   </motion.div>
                 ))}

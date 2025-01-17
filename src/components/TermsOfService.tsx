@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import Navbar from './Navbar';
 
-const TermsOfService = () => {
+const TermsOfService: FC = () => {
   const [activeSection, setActiveSection] = useState<string>('');
   const [showBackToTop, setShowBackToTop] = useState(false);
 
