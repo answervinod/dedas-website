@@ -91,7 +91,8 @@ const utilityData: UtilitySection[] = [
         description: [
           '10% of Network Fees: Collected in tokens and burned quarterly.',
           'Milestone Burns: Burn tokens on achieving specific adoption milestones.'
-        ]
+        ],
+        title: ''
       }
     ]
   }
