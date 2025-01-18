@@ -16,16 +16,24 @@ export default {
           300: "#171717",
         },
         accent: "#00C2FF",
+        neon: {
+          green: "#00FF94",
+          blue: "#00C2FF",
+          pink: "#FF3DFF",
+          purple: "#9D50FF"
+        }
       },
       scale: {
         '120': '1.2',
-      },
-      fontFamily: {
-        sans: ['Space Grotesk', 'sans-serif'],
+        '130': '1.3',
+        '140': '1.4',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-grid': 'linear-gradient(to right, #1a1a1a 1px, transparent 1px), linear-gradient(to bottom, #1a1a1a 1px, transparent 1px)',
+        'gradient-primary': 'linear-gradient(90deg, #00FF94 0%, #00C2FF 100%)',
+        'gradient-secondary': 'linear-gradient(90deg, #FF3DFF 0%, #9D50FF 100%)',
+        'gradient-accent': 'linear-gradient(90deg, #00C2FF 0%, #00FF94 100%)',
       },
     },
   },

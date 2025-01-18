@@ -18,13 +18,12 @@ const Navbar = () => {
   const handleNavigation = (href: string) => {
     const isHomePage = location.pathname === '/';
     
-    if (!isHomePage) {
+    if (!isHomePage && !href.startsWith('/')) {
       // If not on home page, navigate to home first
       navigate('/', { state: { scrollTo: href.substring(1) } });
     } else {
-      // If already on home page, scroll to the section
-      const element = document.getElementById(href.substring(1));
-      element?.scrollIntoView({ behavior: 'smooth' });
+      // If already on home page or href is a full path, navigate to the page
+      navigate(href);
     }
     
     setMobileMenuOpen(false);
@@ -53,7 +52,7 @@ const Navbar = () => {
               <motion.button
                 key={item.name}
                 onClick={() => handleNavigation(item.href)}
-                className="text-lg font-medium text-gray-300 hover:text-primary transition-colors duration-300"
+                className={`text-lg font-medium text-gray-300 hover:text-primary transition-colors duration-300`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -61,6 +60,12 @@ const Navbar = () => {
                 {item.name}
               </motion.button>
             ))}
+            <Link 
+              to="/token-sale" 
+              className="bg-gradient-to-r from-[#FFD700] via-[#FDB931] to-[#D4AF37] hover:from-[#D4AF37] hover:via-[#FDB931] hover:to-[#FFD700] text-dark font-bold px-6 py-2 rounded-full transition-all duration-300 shadow-lg"
+            >
+              DeDaS Token Sale
+            </Link>
             <Link
               to="/nft-marketplace"
               className="bg-primary hover:bg-primary/90 text-dark font-bold px-6 py-2 rounded-full transition-all duration-300"
@@ -101,11 +106,18 @@ const Navbar = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => handleNavigation(item.href)}
-                  className="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-primary transition-colors duration-300"
+                  className={`block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-primary transition-colors duration-300`}
                 >
                   {item.name}
                 </motion.button>
               ))}
+              <Link
+                to="/token-sale"
+                className="block w-full text-center bg-gradient-to-r from-[#FFD700] via-[#FDB931] to-[#D4AF37] hover:from-[#D4AF37] hover:via-[#FDB931] hover:to-[#FFD700] text-dark font-bold px-6 py-2 rounded-full transition-all duration-300 shadow-lg"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                DeDaS Token Sale
+              </Link>
               <Link
                 to="/nft-marketplace"
                 className="block w-full text-center bg-primary hover:bg-primary/90 text-dark font-bold px-6 py-2 rounded-full transition-all duration-300"

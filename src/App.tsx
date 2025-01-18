@@ -1,19 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import Footer from './components/Footer';
 import Features from './components/Features';
 import Tokenomics from './components/Tokenomics';
 import Roadmap from './components/Roadmap';
 import NftMarketplace from './components/NftMarketplace';
 import NftCollection from './components/NftCollection';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsOfService from './components/TermsOfService';
+import AirdropPage from './components/AirdropPage';
+import TokenSale from './pages/TokenSale';
+import Hero from './components/Hero';
 import WhyChoose from './components/WhyChoose';
 import ReleaseSchedule from './components/ReleaseSchedule';
 import TokenUtility from './components/TokenUtility';
 import AppShowcase from './components/AppShowcase';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService';
-import Footer from './components/Footer';
-import AirdropPage from './components/AirdropPage';
 
 // Home page component that combines all sections
 const HomePage = () => (
@@ -25,8 +26,6 @@ const HomePage = () => (
     <ReleaseSchedule />
     <TokenUtility />
     <AppShowcase />
-    <NftCollection />
-    <Roadmap />
   </>
 );
 
@@ -37,7 +36,7 @@ const App = () => {
         <div className="grid-bg" />
         <div className="content-wrapper flex-1">
           <Navbar />
-          <main>
+          <main className="flex-1">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/features" element={<Features />} />
@@ -48,6 +47,7 @@ const App = () => {
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/airdrop" element={<AirdropPage />} />
+              <Route path="/token-sale" element={<TokenSale />} />
             </Routes>
           </main>
         </div>
