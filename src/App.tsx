@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Features from './components/Features';
@@ -12,20 +12,44 @@ import AirdropPage from './components/AirdropPage';
 import TokenSale from './pages/TokenSale';
 import Hero from './components/Hero';
 import WhyChoose from './components/WhyChoose';
-import ReleaseSchedule from './components/ReleaseSchedule';
 import TokenUtility from './components/TokenUtility';
 import AppShowcase from './components/AppShowcase';
+import { useEffect } from 'react';
 
-// Home page component that combines all sections
+const ScrollToSection = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
+  return null;
+};
+
 const HomePage = () => (
   <>
+    <ScrollToSection />
     <Hero />
-    <Features />
+    <section id="features">
+      <Features />
+    </section>
     <WhyChoose />
-    <Tokenomics />
-    <ReleaseSchedule />
+    <section id="tokenomics">
+      <Tokenomics />
+    </section>
+    <section id="roadmap">
+      <Roadmap />
+    </section>
     <TokenUtility />
     <AppShowcase />
+    <section id="nft-collection">
+      <NftCollection />
+    </section>
   </>
 );
 

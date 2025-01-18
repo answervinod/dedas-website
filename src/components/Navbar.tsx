@@ -1,31 +1,35 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const navItems = [
   { name: 'Features', href: '#features' },
   { name: 'Tokenomics', href: '#tokenomics' },
   { name: 'Roadmap', href: '#roadmap' },
-  { name: 'DeDaS NFT', href: '#nft-collection' },
+  { name: 'DeDaS NFT', href: '#nft-collection' }
 ];
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const handleNavigation = (href: string) => {
-    const isHomePage = location.pathname === '/';
-    
-    if (!isHomePage && !href.startsWith('/')) {
-      // If not on home page, navigate to home first
-      navigate('/', { state: { scrollTo: href.substring(1) } });
+    if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        // If not on home page, navigate to home first
+        navigate('/', { state: { scrollTo: href.substring(1) } });
+      } else {
+        // If on home page, scroll to section
+        const element = document.getElementById(href.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     } else {
-      // If already on home page or href is a full path, navigate to the page
       navigate(href);
     }
-    
     setMobileMenuOpen(false);
   };
 
@@ -36,7 +40,6 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">DeDaS</span>
               <img 
                 src="/assets/images/logo.png" 
                 alt="DeDaS Logo" 
