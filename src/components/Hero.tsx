@@ -43,14 +43,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen pt-24 relative overflow-hidden">
+    <section className="min-h-screen pt-24 pb-16 relative overflow-hidden">
       {/* Gradient Orb */}
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/20 rounded-full blur-[100px]" />
       <div className="absolute top-60 -left-40 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]" />
       
       <div className="container-custom">
-        <div className="relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-16">
+        <div className="relative flex flex-col min-h-[calc(100vh-6rem)]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-16 flex-grow">
             {/* Left Content */}
             <motion.div 
               className="max-w-3xl mx-auto lg:mx-0 relative z-10"
@@ -97,7 +97,7 @@ const Hero = () => {
 
             {/* Right Content - Spline Animation */}
             <motion.div 
-              className="relative h-full flex items-center justify-center lg:justify-end -mt-40"
+              className="relative h-full flex items-center justify-center lg:justify-end -mt-20 lg:-mt-40"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -114,16 +114,16 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Waitlist Form Section - Positioned at bottom */}
+          {/* Waitlist Form Section */}
           <motion.div 
-            className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl"
+            className="w-full max-w-4xl mx-auto mt-8 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <div className="glass-card p-8 rounded-2xl backdrop-blur-lg">
+            <div className="glass-card p-6 sm:p-8 rounded-2xl backdrop-blur-lg">
               <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold mb-4">Join the Future of Storage</h2>
+                <h2 className="text-2xl font-bold mb-2 sm:mb-4">Join the Future of Storage</h2>
                 <p className="text-gray-400 text-sm">
                   Be among the first to experience the revolution in decentralized storage.
                 </p>
