@@ -102,9 +102,9 @@ const Hero = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <div className="w-[90%] max-w-md aspect-[9/16] relative">
+              <div className="w-[90%] max-w-md aspect-[9/16] relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent blur-3xl" />
-                <div className="w-full h-full">
+                <div className="w-full h-[115%] -mb-[15%]">
                   <Spline 
                     scene="https://prod.spline.design/jhkPAuiGYfG06bzB/scene.splinecode"
                     style={{ width: '100%', height: '100%' }}
